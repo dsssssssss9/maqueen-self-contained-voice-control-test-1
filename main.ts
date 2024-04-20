@@ -6,7 +6,7 @@ serial.writeLine("" + (voiceRecognition.getWakeTime()))
 voiceRecognition.playByCMDID(voiceRecognition.checkWord1(voiceRecognition.WakeupWords.W2))
 serial.writeLine("==================")
 maqueen.motorStop(maqueen.Motors.All)
-basic.showIcon(IconNames.SmallSquare)
+basic.showIcon(IconNames.Yes)
 basic.forever(function () {
     voiceRecognition.getCMDID()
     if (voiceRecognition.checkCMDID()) {
@@ -20,8 +20,9 @@ basic.forever(function () {
         } else if (voiceRecognition.readCMDID() == voiceRecognition.checkWord3(voiceRecognition.FixedCommandWords.W22)) {
             maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 30)
             basic.showString("F")
-        } else {
-        	
+        } else if (voiceRecognition.readCMDID() == voiceRecognition.checkWord3(voiceRecognition.FixedCommandWords.W23)) {
+            maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, 30)
+            basic.showString("R")
         }
     }
 })
