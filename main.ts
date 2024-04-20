@@ -7,6 +7,11 @@ voiceRecognition.playByCMDID(voiceRecognition.checkWord1(voiceRecognition.Wakeup
 serial.writeLine("==================")
 maqueen.motorStop(maqueen.Motors.All)
 basic.showIcon(IconNames.Ghost)
+/**
+ * Park A Car
+ * 
+ * APPLY BRAKES
+ */
 basic.forever(function () {
     voiceRecognition.getCMDID()
     if (voiceRecognition.checkCMDID()) {
